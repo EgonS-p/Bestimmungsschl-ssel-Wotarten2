@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wortarten-Quiz</title>
+    <style>
+        body {
+            background: linear-gradient(135deg, #e0eafc 0%, #cfdef3 100%);
+            font-family: 'Segoe UI', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        h1 {
+            color: #2a5298;
+            font-size: 2.2rem;
+            margin-bottom: 1rem;
+            text-shadow: 0 2px 8px rgba(42,82,152,0.08);
+        }
+        #quiz-container {
+            background: #fff;
+            padding: 2rem 2.5rem;
+            border-radius: 12px;
+            box-shadow: 0 2px 12px rgba(42,82,152,0.07);
+            margin-bottom: 2rem;
+        }
+        #word-display {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+        }
+        button {
+            background: linear-gradient(90deg, #2a5298 0%, #1e3c72 100%);
+            color: #fff;
+            border: none;
+            border-radius: 25px;
+            padding: 0.8rem 2.2rem;
+            font-size: 1.2rem;
+            font-weight: 600;
+            cursor: pointer;
+            box-shadow: 0 4px 16px rgba(42,82,152,0.12);
+            transition: background 0.2s, transform 0.2s;
+            margin: 0.3rem;
+        }
+        button:hover {
+            background: linear-gradient(90deg, #1e3c72 0%, #2a5298 100%);
+            transform: translateY(-2px) scale(1.04);
+        }
+        #feedback {
+            margin-top: 1rem;
+            font-size: 1.1rem;
+        }
+        a {
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+  <h1>Wortarten-Quiz</h1>
+  <div id="quiz-container">
+    <div id="word-display"></div>
+    <div id="buttons-container"></div>
+    <div id="feedback"></div>
+    <button onclick="nextWord()" style="margin-top:1.5rem;">Nächstes Wort</button>
+    <br><br>
+    <a href="index.html"><button style="background:#888;">Zurück zur Startseite</button></a>
+  </div>
+  <script>
+    const words = [
+      { word: 'unter', type: 'Präposition' },
+      { word: 'laufen', type: 'Verb' },
+      { word: 'Haus', type: 'Nomen' },
+      { word: 'schön', type: 'Adjektiv' },
+      { word: 'und', type: 'Konjunktion' },
+      { word: 'sie', type: 'Pronomen' },
+      { word: 'schnell', type: 'Adverb' },
+      { word: 'auf', type: 'Präposition' },
+      { word: 'in', type: 'Präposition' },
+      { word: 'neben', type: 'Präposition' },
+      { word: 'vor', type: 'Präposition' },
+      { word: 'zwischen', type: 'Präposition' },
+      { word: 'Katze', type: 'Nomen' },
+      { word: 'Computer', type: 'Nomen' },
+      { word: 'Tisch', type: 'Nomen' },
+      { word: 'Schule', type: 'Nomen' },
+      { word: 'Körper', type: 'Nomen' },
+      { word: 'rennen', type: 'Verb' },
+      { word: 'fragen', type: 'Verb' },
+      { word: 'mögen', type: 'Verb' },
+      
+    ];
+    const types = ['Präposition', 'Nomen', 'Verb', 'Adjektiv', 'Konjunktion', 'Pronomen', 'Adverb'];
+    let currentWord = null;
+
+    function showWord() {
+      const idx = Math.floor(Math.random() * words.length);
+      currentWord = words[idx];
+      document.getElementById('word-display').textContent = currentWord.word;
+      document.getElementById('feedback').textContent = '';
+      renderButtons();
+    }
+
+    function renderButtons() {
+      const container = document.getElementById('buttons-container');
+      container.innerHTML = '';
+      types.forEach(type => {
+        const btn = document.createElement('button');
+        btn.textContent = type;
+        btn.onclick = () => checkType(type);
+        container.appendChild(btn);
+      });
+    }
+
+    function checkType(selectedType) {
+      const feedback = document.getElementById('feedback');
+      if (selectedType === currentWord.type) {
+        feedback.textContent = 'Richtig!';
+        feedback.style.color = 'green';
+      } else {
+        feedback.textContent = `Falsch! Richtige Wortart: ${currentWord.type}`;
+        feedback.style.color = 'red';
+      }
+    }
+
+    function nextWord() {
+      showWord();
+    }
+
+    window.onload = showWord;
+  </script>
+</body>
+</html>

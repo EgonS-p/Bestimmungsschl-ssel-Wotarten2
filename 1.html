@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Schritt 1</title>
+    <style>
+        body {
+            background: #f0f4f8;
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+        .options-container {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+            width: 100%;
+            max-width: 500px;
+        }
+        .option-container {
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+            padding: 24px;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .option-text {
+            font-size: 1.2em;
+        }
+        button {
+            margin-left: 20px;
+            padding: 10px 24px;
+            font-size: 1em;
+            border-radius: 8px;
+            border: none;
+            background: #1976d2;
+            color: #fff;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        button:hover {
+            background: #1565c0;
+        }
+        footer {
+            margin-top: 60px;
+            color: #888;
+            font-size: 0.9em;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <header style="margin-bottom: 40px; text-align: center;">
+        <h1>Bestimmungsschlüssel</h1>
+        <p>Bitte wähle eine Option, um fortzufahren:</p>
+    </header>
+    <div class="options-container">
+        <div class="option-container">
+            <span class="option-text">1 Das Wort kann verändert werden (Flektieren)</span>
+            <a href="2.html"><button>Gehe zu 2</button></a>
+        </div>
+        <div class="option-container">
+            <span class="option-text">1* Das Wort kann nicht verändert werden</span>
+            <a href="5.html"><button>Gehe zu 5</button></a>
+        </div>
+    </div>
+    <footer>
+        &copy; 2025 Kajus-apps. <br>
+        Alle Rechte vorbehalten.
+    </footer>
+</body>
+</html>
