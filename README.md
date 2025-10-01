@@ -1,6 +1,6 @@
 # Bestimmungschlüssel Wortarten
-Dies ist ein Bestimmungsschlüssel der Wortarten Bestimmt ihr könnt ihn [![hier](https://example.com/bild.png)](https://www.beispiel.com)
-euch anschauen 
+Dies ist ein Bestimmungsschlüssel der Wortarten Bestimmt ihr könnt ihn 
+euch [button url="https://bestimmungsschluessel-wortarten.vercel.app/index.html"]hier anschauen 
 
 Er wurde wegen eines Deutsch projekt erstellt 
 
